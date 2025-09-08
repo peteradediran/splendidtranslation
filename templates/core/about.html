@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - Splendid Translation{% endblock %}
+
+{% block extra_css %}
+<style>
+    .team-card {
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+    }
+    .team-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .gradient-text {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .floating-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        border-radius: 2px;
+    }
+    .timeline-item:nth-child(odd) {
+        padding-right: calc(50% + 30px);
+        text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+        padding-left: calc(50% + 30px);
+    }
+    .timeline-dot {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-radius: 50%;
+        z-index: 2;
+    }
+    .language-pill {
+        display: inline-block;
+        background: rgba(59, 130, 246, 0.1);
+        color: #3b82f6;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin: 4px;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+    }
+    .value-card {
+        transition: all 0.3s ease;
+        perspective: 1000px;
+    }
+    .value-card:hover {
+        transform: translateY(-5px) rotateY(5deg);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+    <div class="absolute top-0 right-0 -mr-40 mt-20 opacity-10">
+        <svg class="w-80 h-80 text-blue-300 floating-animation" fill="currentColor" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" />
+        </svg>
+    </div>
+    <div class="absolute bottom-0 left-0 -ml-40 mb-20 opacity-10">
+        <svg class="w-80 h-80 text-purple-300 floating-animation" style="animation-delay: 2s;" fill="currentColor" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" />
+        </svg>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold text-gray-900 mb-6">
+                About <span class="gradient-text">Splendid Translation</span>
+            </h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
+                For over a decade, we've been breaking down language barriers and connecting cultures through precise, 
+                culturally-sensitive translation services.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Expert Team</h3>
+                <p class="text-gray-600">Native-speaking translators with industry-specific expertise and cultural knowledge.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Quality Guarantee</h3>
+                <p class="text-gray-600">Rigorous quality assurance processes ensure accurate and culturally appropriate translations.</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Fast Turnaround</h3>
+                <p class="text-gray-600">Efficient workflows and advanced tools ensure timely delivery without compromising quality.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">Our <span class="gradient-text">Mission</span></h2>
+                <p class="text-xl text-gray-700 mb-6">
+                    To break down language barriers and facilitate meaningful communication across cultures through 
+                    accurate, culturally-appropriate translations that preserve the original message's intent and nuance.
+                </p>
+                <p class="text-gray-600">
+                    We believe that language should never be an obstacle to understanding, collaboration, or progress. 
+                    Our mission is to empower businesses and individuals to connect with global audiences seamlessly.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <p class="text-lg">
+                        To be the world's most trusted translation partner, known for exceptional quality, 
+                        cultural sensitivity, and innovative language solutions that drive global success.
+                    </p>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-sm transform rotate-12">
+                    Since 2010
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our <span class="gradient-text">Journey</span></h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Key milestones in our growth and development</p>
+        </div>
+        
+        <div class="relative timeline">
+            {% for milestone in milestones %}
+            <div class="relative timeline-item mb-12">
+                <div class="timeline-dot"></div>
+                <div class="bg-white p-6 rounded-2xl shadow-xl">
+                    <div class="text-blue-600 font-bold text-2xl mb-2">{{ milestone.year }}</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ milestone.event }}</h3>
+                    <p class="text-gray-600">{{ milestone.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Meet Our <span class="gradient-text">Leadership Team</span></h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Experienced professionals dedicated to excellence in translation</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for member in team_members %}
+            <div class="team-card bg-white p-6 rounded-2xl shadow-xl border border-gray-100 text-center">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
+                    <img src="{{ member.image }}" alt="{{ member.name }}" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ member.name }}</h3>
+                <p class="text-blue-600 font-semibold mb-4">{{ member.position }}</p>
+                <p class="text-gray-600 mb-6">{{ member.bio }}</p>
+                
+                <div class="pt-4 border-t border-gray-200">
+                    <h4 class="text-sm font-semibold text-gray-800 mb-3">Languages:</h4>
+                    <div class="flex flex-wrap justify-center">
+                        {% for lang in member.languages %}
+                        <span class="language-pill">{{ lang }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Our <span class="gradient-text">Core Values</span></h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">The principles that guide everything we do</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="value-card bg-white p-6 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Excellence</h3>
+                <p class="text-gray-600">We strive for perfection in every translation, ensuring accuracy and cultural appropriateness.</p>
+            </div>
+            
+            <div class="value-card bg-white p-6 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Integrity</h3>
+                <p class="text-gray-600">We maintain the highest ethical standards, ensuring confidentiality and trust in all client relationships.</p>
+            </div>
+            
+            <div class="value-card bg-white p-6 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Collaboration</h3>
+                <p class="text-gray-600">We work closely with clients to understand their needs and deliver solutions that exceed expectations.</p>
+            </div>
+            
+            <div class="value-card bg-white p-6 rounded-2xl shadow-xl text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Innovation</h3>
+                <p class="text-gray-600">We continuously adopt new technologies and methodologies to improve our services and efficiency.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold mb-6">Ready to Work With Us?</h2>
+        <p class="text-xl mb-8">Join thousands of satisfied clients who trust us with their translation needs.</p>
+        
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="{% url 'contact' %}" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 transform hover:-translate-y-1">
+                Get Started Today
+            </a>
+            <a href="{% url 'services' %}" class="border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
+                Explore Our Services
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add intersection observer for scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all team cards
+        document.querySelectorAll('.team-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe all value cards
+        document.querySelectorAll('.value-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+    });
+</script>
+{% endblock %}

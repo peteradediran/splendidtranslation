@@ -1,0 +1,368 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Splendid Translation{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-card {
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+    }
+    .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .info-card {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        border-radius: 16px;
+        padding: 2rem;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    .info-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .form-input {
+        transition: all 0.3s ease;
+        border: 2px solid #e5e7eb;
+    }
+    .form-input:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    .map-container {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .floating-label {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+    .floating-label input,
+    .floating-label textarea,
+    .floating-label select {
+        padding-top: 1.5rem;
+    }
+    .floating-label label {
+        position: absolute;
+        top: 0.75rem;
+        left: 1rem;
+        color: #6b7280;
+        transition: all 0.2s ease;
+        pointer-events: none;
+    }
+    .floating-label input:focus ~ label,
+    .floating-label textarea:focus ~ label,
+    .floating-label select:focus ~ label,
+    .floating-label input:not(:placeholder-shown) ~ label,
+    .floating-label textarea:not(:placeholder-shown) ~ label {
+        top: 0.25rem;
+        left: 0.75rem;
+        font-size: 0.75rem;
+        color: #3b82f6;
+    }
+    .success-message {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+    .error-message {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="relative py-20 overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div class="absolute inset-0 bg-white opacity-10"></div>
+    <div class="absolute top-0 right-0 -mt-16 -mr-16 opacity-10">
+        <svg class="w-64 h-64 text-blue-300" fill="currentColor" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" />
+        </svg>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl font-bold text-gray-900 mb-6">
+            Get in <span class="gradient-text">Touch</span>
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Have a project in mind? Let's discuss how we can help you break language barriers and reach global audiences.
+        </p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Contact Information -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="info-card">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Visit Our Office</h3>
+                            <p class="text-blue-100">11, Agodogbon Estate,<br>Lucky fibre<br>Ikorodu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                            <p class="text-blue-100">+2348023939404</p>
+                            <p class="text-blue-100 text-sm mt-1">Mon-Fri: 9AM-6PM EST</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="flex items-start mb-4">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                            <p class="text-blue-100">info@splendidtranslationsnig.com</p>
+                            <p class="text-blue-100 text-sm mt-1">We respond within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="bg-gray-50 p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-900">Business Hours</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Monday - Friday</span>
+                            <span class="font-medium text-gray-900">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Saturday</span>
+                            <span class="font-medium text-gray-900">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Sunday</span>
+                            <span class="font-medium text-gray-900">Closed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="lg:col-span-2">
+                <div class="contact-card bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+                    
+                    <!-- Messages -->
+                    {% if messages %}
+                    <div class="mb-6 space-y-3">
+                        {% for message in messages %}
+                        <div class="p-4 rounded-lg text-white {% if message.tags == 'success' %}success-message{% else %}error-message{% endif %}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <form method="post" class="space-y-6">
+                        {% csrf_token %}
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="floating-label">
+                                <input type="text" id="name" name="name" placeholder=" " required 
+                                       class="w-full px-4 py-3 rounded-lg form-input">
+                                <label for="name">Full Name *</label>
+                            </div>
+                            
+                            <div class="floating-label">
+                                <input type="email" id="email" name="email" placeholder=" " required 
+                                       class="w-full px-4 py-3 rounded-lg form-input">
+                                <label for="email">Email Address *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="floating-label">
+                                <input type="tel" id="phone" name="phone" placeholder=" " 
+                                       class="w-full px-4 py-3 rounded-lg form-input">
+                                <label for="phone">Phone Number</label>
+                            </div>
+                            
+                            <div class="floating-label">
+                                <select id="service" name="service" class="w-full px-4 py-3 rounded-lg form-input">
+                                    <option value="" selected disabled></option>
+                                    {% for service in services %}
+                                    <option value="{{ service }}">{{ service }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="service">Service Needed</label>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required 
+                                      class="w-full px-4 py-3 rounded-lg form-input"></textarea>
+                            <label for="message">Your Message *</label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:-translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Find Our <span class="gradient-text">Office</span></h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Visit us at our conveniently located office in New York City</p>
+        </div>
+        
+        <div class="map-container">
+            <!-- Google Maps Embed -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-74.004258724266!3d40.754733971388955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af26a8b5a5%3A0x5c2b3b3b3b3b3b3b!2s123%20Business%20Ave%2C%20New%20York%2C%20NY%2010001!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                class="rounded-2xl">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Quick answers to common questions about our services</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 p-6 rounded-2xl">
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">How quickly can you deliver translations?</h3>
+                <p class="text-gray-600">Most standard documents are delivered within 2-5 business days. We also offer expedited services for urgent projects.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-2xl">
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">Do you offer certified translations?</h3>
+                <p class="text-gray-600">Yes, we provide certified translations for legal documents, academic records, and official paperwork with notarization if required.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-2xl">
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">What file formats do you accept?</h3>
+                <p class="text-gray-600">We work with all common formats including DOCX, PDF, PPTX, XLSX, and more. We can also handle specialized software files.</p>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-2xl">
+                <h3 class="text-xl font-semibold mb-3 text-gray-900">How do you ensure quality?</h3>
+                <p class="text-gray-600">All translations go through a rigorous process including translation by native speakers, editing, and proofreading by subject matter experts.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{% url 'services' %}" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800">
+                <span>View all services</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
+        <p class="text-xl mb-8">Get a free quote for your translation needs. We're here to help you succeed globally.</p>
+        
+        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="tel:+15551234567" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:-translate-y-1">
+                Call Now
+            </a>
+            <a href="mailto:info@splendidtranslation.com" class="border-2 border-white text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:-translate-y-1">
+                Email Us
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form validation
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const message = document.getElementById('message');
+                
+                if (!name.value.trim()) {
+                    e.preventDefault();
+                    name.focus();
+                    return false;
+                }
+                
+                if (!email.value.trim() || !email.value.includes('@')) {
+                    e.preventDefault();
+                    email.focus();
+                    return false;
+                }
+                
+                if (!message.value.trim()) {
+                    e.preventDefault();
+                    message.focus();
+                    return false;
+                }
+            });
+        }
+        
+        // Animate form elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observe form elements
+        document.querySelectorAll('.floating-label').forEach((el, index) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.transitionDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+    });
+</script>
+{% endblock %}
